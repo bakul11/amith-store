@@ -1,6 +1,6 @@
 
 import { connectDB } from "@/database/db";
-import authDB from "@/model/userModel";
+import authDB from "@/model/authModel";
 import jwt from "jsonwebtoken";
 import { NextResponse } from "next/server"
 
