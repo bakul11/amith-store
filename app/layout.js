@@ -1,11 +1,12 @@
 
-import Footer from "@/components/footer/Footer";
 import "./globals.css";
-import Promotions from "@/components/promotions/Promotions";
-import NavBar from "@/components/navbar/NavBar";
-import TopBar from "@/components/navbar/TopBar";
-import ReduxProvider from "@/redux/provider/ReduxProvider";
-import HotToast from "@/shared/toast/HotToast";
+import Promotions from "@/components/Promotions/Promotions";
+import NavBar from "@/components/Navbar/NavBar";
+import TopBar from "@/components/Navbar/TopBar";
+import Footer from "@/components/Footer/Footer";
+import ReduxProvider from "@/redux/ReduxProvider/ReduxProvider";
+import HotToast from "@/components/Toast/HotToast";
+
 
 
 
