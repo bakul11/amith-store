@@ -112,7 +112,7 @@ const Footer = () => {
                         <div className="subcribe relative capitalize my-5">
                             <form action="">
                                 <input type="email" placeholder='Email Address' className='outline-none p-2 focus:ring-white focus:ring-1 rounded-sm ring-0 w-full ring-gray-400 placeholder-gray-400 text-[14px]' required/>
-                                <input type="submit" value="Subscribe" className='bg-blue-400 text-white p-2 cursor-pointer rounded-sm absolute right-0 top-0 bottom-0' />
+                                <input type="submit" value="Subscribe" className='bg-gradient-to-r from-cyan-500 to-blue-400 text-white p-2 cursor-pointer rounded-sm absolute right-0 top-0 bottom-0' />
                             </form>
                         </div>
                         <div className="flow-us mt-5">

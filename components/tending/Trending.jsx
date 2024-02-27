@@ -90,7 +90,7 @@ const Trending = () => {
 
     return (
         <section className='tending-section'>
-            <div className="px-5 lg:px-12 py-5">
+            <div className="px-5 lg:px-12 py-5 mb-12">
                 <h2 className='font-bold text-slate-800 text-xl my-5'>Trending right now</h2>
 
                 <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-5">
