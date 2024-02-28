@@ -1,22 +1,25 @@
-"us client"
+"use client"
 import Link from 'next/link';
 import React from 'react';
 import { MdShoppingCartCheckout } from "react-icons/md";
 import { FaUserLock } from "react-icons/fa";
-import { BiSolidShoppingBags } from 'react-icons/bi';
 import { IoIosSearch } from "react-icons/io";
+import logo from '../../public/assets/cb.webp'
+import Image from 'next/image';
+import { useSelector } from 'react-redux';
 
 
 
 const TopBar = () => {
+    const { cart } = useSelector(state => state.cart);
+
     return (
         <div className='top-section bg-white'>
             <div className="px-4 lg:px-12">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between ">
                     <div className="login-box mb-5 w-[20%]">
                         <Link href='/' className='font-bold text-slate-800 capitalize flex items-center gap-2'>
-                            <BiSolidShoppingBags className='text-orange-400 text-7xl' />
-                            <span className='text-2xl font-bold text-slate-800'>Amith store</span>
+                            <Image src={logo} alt='logo' height={500} width={500} className='object-cover rounded-full h-[100px] w-[200px]' />
                         </Link>
                     </div>
                     <div className="searchbar w-[50%]">
@@ -32,7 +35,7 @@ const TopBar = () => {
                             <div className="cart-button relative">
                                 <Link href='/cart'>
                                     <MdShoppingCartCheckout className='text-2xl text-slate-950' />
-                                    <p className='bg-blue-400 absolute -top-4 -right-2 rounded-full text-white w-5 h-5 text-center'>1</p>
+                                    <p className='bg-blue-400 absolute -top-4 -right-2 rounded-full text-white w-5 h-5 text-center'>{cart?.length}</p>
                                 </Link>
 
                             </div>

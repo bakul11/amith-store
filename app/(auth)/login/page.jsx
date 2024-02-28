@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form"
 import { FaArrowRight } from 'react-icons/fa';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { BiSolidShoppingBags } from "react-icons/bi";
 import { FaRegEye } from "react-icons/fa6";
 import { BeatLoader } from 'react-spinners';
 import Cookies from 'js-cookie';
@@ -75,12 +74,6 @@ const page = () => {
             <div className="flex justify-between">
                 <div className="login_form w-full md:w-[40%] lg:w-[40%]">
                     <div className="px-5 lg:px-12 py-12">
-                        <div className="login-box mb-5">
-                            <Link href='/' className='font-bold text-slate-800 uppercase flex items-center gap-2'>
-                                <BiSolidShoppingBags className='text-yellow-500 text-7xl' />
-                                <span className='text-2xl font-bold'>Amith Store</span>
-                            </Link>
-                        </div>
                         <div className="sign-title my-5">
                             <h1 className='text-2xl font-medium text-slate-800'>Sign In</h1>
                             <p className='text-[15px] font-medium text-gray-500'>Login to continue</p>

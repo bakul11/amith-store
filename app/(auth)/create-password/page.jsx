@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import logo from '../../../public/assets/login.jpg'
 import { useForm } from "react-hook-form"
 import { FaArrowRight, FaRegEye } from 'react-icons/fa';
-import { BiSolidShoppingBags } from "react-icons/bi";
 import { BeatLoader } from 'react-spinners';
 import Cookies from 'js-cookie';
 import toast from 'react-hot-toast';
@@ -76,12 +75,7 @@ const page = () => {
             <div className="flex justify-between">
                 <div className="login_form w-full md:w-[40%] lg:w-[40%]">
                     <div className="px-5 lg:px-12 py-12">
-                        <div className="login-box mb-5">
-                            <Link href='/' className='font-bold text-slate-800 uppercase flex items-center gap-2'>
-                                <BiSolidShoppingBags className='text-yellow-500 text-7xl' />
-                                <span className='text-2xl font-bold'>Amith Store</span>
-                            </Link>
-                        </div>
+
                         <div className="sign-title my-5">
                             <h1 className='text-2xl font-semibold text-slate-800'>Set New password?</h1>
                             <p className='text-[15px] font-[400] text-gray-500 my-2'>Don’t warry! it happens. Please enter the password

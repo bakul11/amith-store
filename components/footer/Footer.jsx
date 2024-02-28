@@ -1,7 +1,9 @@
 "use client"
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { FaAngleRight, FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
+import logo from '../../public/assets/cb.webp'
 
 const Footer = () => {
     return (
@@ -9,7 +11,9 @@ const Footer = () => {
             <div className='px-5 lg:px-12 pt-8 pb-5'>
                 <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 2xl:grid-cols-4 gap-5">
                     <div className="footer-item">
-                        <Link href='/' className='font-bold text-xl inline-block text-white capitalize'>Amith Store</Link>
+                        <Link href='/' className='font-bold text-slate-800 capitalize flex items-center gap-2'>
+                            <Image src={logo} alt='logo' height={500} width={500} className='object-cover rounded-full h-[100px] w-[200px]' />
+                        </Link>
                         <p className='text-gray-400 text-[15px] mt-3'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero sed aperiam quam, nisi rem sit deserunt sequi mollitia quae voluptatum rerum at ipsum facilis eos.</p>
                     </div>
                     <div className="footer-item">
@@ -111,7 +115,7 @@ const Footer = () => {
                         <p className='text-gray-400 text-[15px] my-2'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero sed aperiam quam</p>
                         <div className="subcribe relative capitalize my-5">
                             <form action="">
-                                <input type="email" placeholder='Email Address' className='outline-none p-2 focus:ring-white focus:ring-1 rounded-sm ring-0 w-full ring-gray-400 placeholder-gray-400 text-[14px]' required/>
+                                <input type="email" placeholder='Email Address' className='outline-none p-2 focus:ring-white focus:ring-1 rounded-sm ring-0 w-full ring-gray-400 placeholder-gray-400 text-[14px]' required />
                                 <input type="submit" value="Subscribe" className='bg-gradient-to-r from-cyan-500 to-blue-400 text-white p-2 cursor-pointer rounded-sm absolute right-0 top-0 bottom-0' />
                             </form>
                         </div>

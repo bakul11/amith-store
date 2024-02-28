@@ -11,14 +11,17 @@ const cartSlice = createSlice({
     reducers: {
         //add to cart 
         addToCart: (state, action) => {
-            const isCart = state.cart.find((item) => item._id === action.payload._id);
-            if (isCart) {
-                isCart.qty++;
+            const itemInCart = state.cart.find((item) => item._id === action.payload._id);
+            if (itemInCart) {
+                itemInCart.quantity++;
+                toast.success('Item quantity increment')
 
             } else {
-                state.cart.push([{ ...action.payload, qty: 1 }])
+                state.cart.push({ ...action.payload, quantity: 1 })
                 toast.success('Item add to cart success')
             }
+
+            localStorage.setItem('cart', JSON.stringify(state.cart))
         },
 
         // remove form cart 
@@ -30,17 +33,17 @@ const cartSlice = createSlice({
         //quantity increment funtion
         incrementQty: (state, action) => {
             const item = state.cart.find((item) => item._id === action.payload);
-            item.qty++;
-            toast.success('Item quantity increment success')
+            item.quantity++;
+            toast.success('Item quantity increment ')
         },
         //decremnt qty funtion
         decrementQty: (state, action) => {
             const item = state.cart.find((item) => item._id === action.payload);
-            if (item.qty === 1) {
-                item.qty = 1
+            if (item.quantity === 1) {
+                item.quantity = 1
             } else {
-                item.qty--;
-                toast.success('Item quantity decrement success')
+                item.quantity--;
+                toast.success('Item quantity decrement')
             }
         }
 
