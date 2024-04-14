@@ -2,10 +2,11 @@ import { createSlice } from "@reduxjs/toolkit"
 import toast from "react-hot-toast";
 
 
+let isCartData;
 
 if (typeof window !== 'undefined') {
     // now access your localStorage
-    const isCartData = localStorage.getItem('cart');
+    localStorage.getItem('cart');
 }
 
 
