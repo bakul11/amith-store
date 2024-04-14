@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react';
 import { MdShoppingCartCheckout } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
     const id = params.id;
     const [pd, setPd] = useState({});
     const [loadding, setLoadding] = useState(false);

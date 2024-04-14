@@ -95,7 +95,7 @@ const Page = () => {
                                             </thead>
                                             <tbody>
                                                 {
-                                                    product?.filter((item) => item.title.toLowerCase().includes(search)).map((product, index) => <ProductCart product={product} index={index} />)
+                                                    product?.filter((item) => item.title.toLowerCase().includes(search)).map((product, index) => <ProductCart product={product} key={index} index={index} />)
 
                                                 }
 
