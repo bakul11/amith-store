@@ -2,7 +2,14 @@ import { createSlice } from "@reduxjs/toolkit"
 import toast from "react-hot-toast";
 
 
-const newCart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : []
+
+if (typeof window !== 'undefined') {
+    // now access your localStorage
+    const isCartData = localStorage.getItem('cart');
+}
+
+
+const newCart = isCartData ? JSON.parse(isCartData) : []
 
 const initialState = {
     cart: newCart
