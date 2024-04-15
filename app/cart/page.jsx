@@ -8,6 +8,7 @@ import React from 'react';
 import { FaArrowRightLong, FaRegTrashCan } from 'react-icons/fa6';
 import { useDispatch, useSelector } from 'react-redux';
 import EmptyCart from './(site)/EmptyCart';
+import toast from 'react-hot-toast';
 
 
 const Page = () => {
@@ -15,6 +16,41 @@ const Page = () => {
     const dispatch = useDispatch();
     const [user] = useActiveUser();
     const router = useRouter();
+
+
+    const storeData = {
+        userId: user?._id,
+        cart: cart
+    }
+
+
+
+
+
+    //store data
+
+    const handlePostData = () => {
+        fetch('/api/order/post-orders', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(storeData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data?.success) {
+                    toast.success(data?.message)
+                    router.push('/')
+                    localStorage.removeItem('cart')
+                } else {
+                    if (data?.error) {
+                        toast.error(data?.message)
+                    }
+                }
+            })
+    }
+
 
 
     //total calculation
@@ -76,17 +112,28 @@ const Page = () => {
                                 <h4>Items : <span className='float-right'>{getTotal()?.totalQuantity} items</span></h4>
                                 <h4>Sub total : <span className='float-right'>${getTotal()?.totalPrice}.00</span></h4>
                                 <h4 className='font-bold text-slate-800'>Grand total Amount: <span className='float-right'>${getTotal()?.totalPrice}.00</span></h4>
-                                <Link href='/checkout' className='rounded-[50px] px-5 py-2 bg-gradient-to-r from-rose-400 to-orange-400  inline-block text-center mx-auto text-white my-5'>
-                                    <div className="flex items-center justify-center gap-2">
-                                        {
-                                            user?.email ?
-                                                <span>Continue to Payment</span>
-                                                :
-                                                <span onClick={() => router.push('/login')}>Login first Continue</span>
-                                        }
-                                        <FaArrowRightLong />
-                                    </div>
-                                </Link>
+
+
+                                {/* user check  */}
+
+                                {
+                                    user?.email ?
+                                        <button className='rounded-[50px] px-5 py-2 bg-blue-400 inline-block text-center mx-auto text-white my-5' onClick={handlePostData}>
+                                            <div className="flex items-center justify-center gap-2">
+                                                Place Your Confirm Order
+                                                <FaArrowRightLong />
+                                            </div>
+                                        </button>
+
+                                        :
+                                        <Link href='/login' className='rounded-[50px] px-5 py-2 bg-blue-400 inline-block text-center mx-auto text-white my-5'>
+                                            <div className="flex items-center justify-center gap-2">
+                                                Please Login first
+                                                <FaArrowRightLong />
+                                            </div>
+                                        </Link>
+                                }
+
                             </div>
                         </div>
                     </div>

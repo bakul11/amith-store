@@ -22,6 +22,7 @@ const Page = () => {
             await fetch('/api/product/get-allproducts')
                 .then(res => res.json())
                 .then(data => {
+                    console.log("data..", data);
                     setProduct(data)
                     setLoadding(false)
                 })

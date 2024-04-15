@@ -5,20 +5,9 @@ import { NextResponse } from "next/server"
 export const GET = async (req, res) => {
     try {
         await connectDB();
-        const url = new URL(req.url);
-        const searchParams = new URLSearchParams(url.searchParams);
-        const page = searchParams.get('page') || 1;
-        const limit = 1;
-
-
-        const totalItems = await productDB.countDocuments();
-        const totalPages = Math.ceil(totalItems / limit)
-        const skip = ((page - 1) * limit);
-
-        const product = await productDB.find().skip(skip).limit(page).exec();
-
+        const product = await productDB.find();
         //success
-        return NextResponse.json({ product, totalPages })
+        return NextResponse.json(product)
 
     } catch (error) {
         return NextResponse.json({

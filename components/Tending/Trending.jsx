@@ -24,21 +24,14 @@ const Trending = () => {
     const dispatch = useDispatch();
 
 
-    // all data fetching here api 
-    const [currentPage, setCurrentPage] = useState(8);
-    const [totalPages, setTotalPages] = useState(1);
-
-
 
 
     useEffect(() => {
         const fetchingData = async () => {
-            setLoadding(true)
-            await fetch(`/api/product/get-allproducts?page=${currentPage}`)
+            await fetch('/api/product/get-allproducts')
                 .then(res => res.json())
                 .then(data => {
-                    setTending(data?.product)
-                    setTotalPages(data?.totalPages)
+                    setTending(data)
                     setLoadding(false)
                 })
                 .catch(err => {
@@ -50,20 +43,8 @@ const Trending = () => {
         //call function
         fetchingData()
 
-    }, [currentPage]);
+    }, []);
 
-
-    const handleNextPage = () => {
-        if (currentPage < totalPages) {
-            setCurrentPage(currentPage + 1);
-        }
-    };
-
-    const handlePrevPage = () => {
-        if (currentPage > 1) {
-            setCurrentPage(currentPage - 1);
-        }
-    };
 
 
 
@@ -117,16 +98,6 @@ const Trending = () => {
                             }
                         </div>
                 }
-
-
-                {/* pagination start here  */}
-                <div>
-                    <button onClick={handlePrevPage} disabled={currentPage === 1}>Previous</button>
-                    <span>Page {currentPage} of {totalPages}</span>
-                    <button onClick={handleNextPage} disabled={currentPage === totalPages}>Next</button>
-                </div>
-
-
             </div>
 
         </section>
